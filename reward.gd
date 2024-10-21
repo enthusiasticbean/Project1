@@ -19,7 +19,7 @@ func _input(_event):
 	if Input.is_action_just_pressed("spin"):
 		timer_created = false
 		reward_given = false
-		timer.start
+		timer.start()
 		await timer.timeout
 		if state == GIVING:
 			if not reward_given:
