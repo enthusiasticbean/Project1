@@ -10,9 +10,6 @@
 position = Vector2(580, 339)
 script = ExtResource("2_rgaek")
 
-[node name="wheel" parent="." instance=ExtResource("1_s5xcc")]
-position = Vector2(580, 334)
-
 [node name="Prize labels" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -29,23 +26,15 @@ theme_override_colors/font_color = Color(0.839216, 0.45098, 0.423529, 1)
 theme_override_font_sizes/font_size = 50
 text = "0 coins"
 
-[node name="100 coins" parent="Prize labels" instance=ExtResource("4_mfh7u")]
+[node name="100 coins" parent="Prize labels" node_paths=PackedStringArray("Coin_label") instance=ExtResource("4_mfh7u")]
 position = Vector2(500, 48)
 prize1 = 100
+Coin_label = NodePath("../coin label")
 
-[node name="10 coins" parent="Prize labels" instance=ExtResource("4_mfh7u")]
+[node name="10 coins" parent="Prize labels" node_paths=PackedStringArray("Coin_label") instance=ExtResource("4_mfh7u")]
 position = Vector2(789, 317)
 prize1 = 10
+Coin_label = NodePath("../coin label")
 
-[node name="CollisionShape2D" parent="Prize labels/10 coins" index="0"]
-rotation = 1.5708
-
-[node name="Label" parent="Prize labels/10 coins" index="1"]
-text = "10 coins"
-
-[connection signal="area_entered" from="wheel/reward_sensor" to="Prize labels/100 coins" method="_on_reward_sensor_area_entered"]
-[connection signal="area_exited" from="wheel/reward_sensor" to="Prize labels/100 coins" method="_on_reward_sensor_area_exited"]
-
-[editable path="wheel"]
-[editable path="Prize labels/100 coins"]
-[editable path="Prize labels/10 coins"]
+[node name="wheel" parent="." instance=ExtResource("1_s5xcc")]
+position = Vector2(580, 334)

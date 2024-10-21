@@ -9,6 +9,12 @@ size = Vector2(164, 48)
 position = Vector2(497, 26)
 script = ExtResource("1_ai8q3")
 
+[node name="Background" type="ColorRect" parent="."]
+offset_top = -25.0
+offset_right = 163.0
+offset_bottom = 163.0
+color = Color(0, 0, 0, 0.211765)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(81, 28)
 shape = SubResource("RectangleShape2D_qdrpg")
@@ -18,6 +24,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 35
 text = "100 coins"
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

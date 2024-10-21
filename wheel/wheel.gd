@@ -1,8 +1,7 @@
 extends Sprite2D
 
-
-@onready var tween_has_run = false
-@onready var prize = null
+var tween_has_run = false
+var prize = null
 
 func _input(_event):
 	#if not tween_has_run:
