@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvyi2jxi0wvev"]
+
+[ext_resource type="Script" path="res://coin label/reward.gd" id="1_ai8q3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdrpg"]
+size = Vector2(164, 48)
+
+[node name="100 coins" type="Area2D"]
+position = Vector2(497, 26)
+script = ExtResource("1_ai8q3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(81, 28)
+shape = SubResource("RectangleShape2D_qdrpg")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 35
+text = "100 coins"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0

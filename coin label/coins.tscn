@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl182qc3qdc3r"]
+
+[ext_resource type="PackedScene" uid="uid://cxtnt8tf0w5p0" path="res://coin label/reward.tscn" id="1_ivoy6"]
+
+[node name="coins" type="Label"]
+offset_left = 508.0
+offset_top = 48.0
+offset_right = 664.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 35
+text = "100 coins"
+
+[node name="reward" parent="." instance=ExtResource("1_ivoy6")]
+
+[editable path="reward"]

@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://doyt13qo0qh6v"]
+
+[ext_resource type="PackedScene" uid="uid://dqhxy806p8opo" path="res://wheel/wheel.tscn" id="1_s5xcc"]
+[ext_resource type="Script" path="res://world/Circle.gd" id="2_rgaek"]
+[ext_resource type="Script" path="res://coin label/reward.gd" id="3_p8qth"]
+[ext_resource type="PackedScene" uid="uid://dl182qc3qdc3r" path="res://coin label/coins.tscn" id="4_mti2t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7358"]
+size = Vector2(161, 51)
+
+[node name="world" type="Node2D"]
+
+[node name="Circle" type="Node2D" parent="."]
+position = Vector2(580, 339)
+script = ExtResource("2_rgaek")
+
+[node name="wheel" parent="." instance=ExtResource("1_s5xcc")]
+position = Vector2(580, 334)
+
+[node name="Prize labels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="coins" type="Label" parent="Prize labels"]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 48.0
+offset_right = 664.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 35
+text = "100 coins"
+
+[node name="reward" type="Area2D" parent="Prize labels/coins"]
+position = Vector2(-24, -12)
+script = ExtResource("3_p8qth")
+prize = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prize labels/coins/reward"]
+position = Vector2(101.5, 37.5)
+shape = SubResource("RectangleShape2D_f7358")
+
+[node name="coin label" type="Label" parent="Prize labels"]
+layout_mode = 0
+offset_left = 857.0
+offset_top = 46.0
+offset_right = 911.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.839216, 0.45098, 0.423529, 1)
+theme_override_font_sizes/font_size = 50
+text = "0 coins"
+
+[node name="coins2" parent="Prize labels" instance=ExtResource("4_mti2t")]
+layout_mode = 0
+offset_left = 785.0
+offset_top = 308.0
+offset_right = 941.0
+offset_bottom = 360.0
+text = "10 coins"
+
+[node name="reward" parent="Prize labels/coins2" index="0"]
+monitoring = false
+priority = 1
+prize = 10
+
+[connection signal="area_entered" from="wheel/reward_sensor" to="Prize labels/coins/reward" method="_on_reward_sensor_area_entered"]
+[connection signal="area_exited" from="wheel/reward_sensor" to="Prize labels/coins/reward" method="_on_reward_sensor_area_exited"]
+
+[editable path="wheel"]
+[editable path="Prize labels/coins2"]
+[editable path="Prize labels/coins2/reward"]

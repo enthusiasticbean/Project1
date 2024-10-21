@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqhxy806p8opo"]
+
+[ext_resource type="Texture2D" uid="uid://cukt2kpqt4bp6" path="res://icon.svg" id="1_7ga48"]
+[ext_resource type="Script" path="res://wheel/wheel.gd" id="2_gdm0f"]
+[ext_resource type="Texture2D" uid="uid://ynu5svjkipk4" path="res://wheel/Arrow1.png" id="3_528ig"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rswqw"]
+radius = 8.0
+height = 236.0
+
+[node name="wheel" type="Sprite2D"]
+position = Vector2(568, 322)
+texture = ExtResource("1_7ga48")
+script = ExtResource("2_gdm0f")
+
+[node name="arrow" type="Sprite2D" parent="."]
+position = Vector2(1, -134.625)
+scale = Vector2(0.0913334, 0.0911667)
+texture = ExtResource("3_528ig")
+
+[node name="reward_sensor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="reward_sensor"]
+position = Vector2(2, -260)
+shape = SubResource("CapsuleShape2D_rswqw")

@@ -19,7 +19,7 @@ func _input(_event):
 	if Input.is_action_just_pressed("spin"):
 		timer_created = false
 		reward_given = false
-		timer.start
+		timer.start()
 		await timer.timeout
 		if state == GIVING:
 			if not reward_given:
@@ -28,9 +28,9 @@ func _input(_event):
 				reward_given = true
 
 
-func _on_reward_sensor_area_entered(area: Area2D) -> void:
+func _on_reward_sensor_area_entered(_area: Area2D) -> void:
 	state = GIVING
 
 
-func _on_reward_sensor_area_exited(area: Area2D) -> void:
+func _on_reward_sensor_area_exited(_area: Area2D) -> void:
 	state = IDLE

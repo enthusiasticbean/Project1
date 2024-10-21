@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxtnt8tf0w5p0"]
+
+[ext_resource type="Script" path="res://coin label/reward.gd" id="1_2ty34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7358"]
+size = Vector2(161, 51)
+
+[node name="reward" type="Area2D"]
+position = Vector2(-24, -12)
+script = ExtResource("1_2ty34")
+prize = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(101.5, 37.5)
+shape = SubResource("RectangleShape2D_f7358")
