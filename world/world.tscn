@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://doyt13qo0qh6v"]
+[gd_scene load_steps=5 format=3 uid="uid://doyt13qo0qh6v"]
 
 [ext_resource type="PackedScene" uid="uid://dqhxy806p8opo" path="res://wheel/wheel.tscn" id="1_s5xcc"]
 [ext_resource type="Script" path="res://world/Circle.gd" id="2_rgaek"]
+[ext_resource type="Script" path="res://coin label/reward (2).gd" id="3_u6ieu"]
 [ext_resource type="PackedScene" uid="uid://dvyi2jxi0wvev" path="res://coin label/rewarded_coins.tscn" id="4_mfh7u"]
 
 [node name="world" type="Node2D"]
@@ -16,25 +17,38 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="coin label" type="Label" parent="Prize labels"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Prize labels"]
 layout_mode = 0
-offset_left = 857.0
-offset_top = 46.0
-offset_right = 911.0
-offset_bottom = 72.0
+offset_left = 676.0
+offset_top = 24.0
+offset_right = 1005.0
+offset_bottom = 93.0
+
+[node name="total_value" type="Label" parent="Prize labels/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 theme_override_colors/font_color = Color(0.839216, 0.45098, 0.423529, 1)
 theme_override_font_sizes/font_size = 50
-text = "0 coins"
+text = "0"
+horizontal_alignment = 2
+
+[node name="coin_label" type="Label" parent="Prize labels/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.45098, 0.423529, 1)
+theme_override_font_sizes/font_size = 50
+text = "coins"
 
 [node name="100 coins" parent="Prize labels" node_paths=PackedStringArray("Coin_label") instance=ExtResource("4_mfh7u")]
 position = Vector2(500, 48)
+script = ExtResource("3_u6ieu")
+Coin_label = NodePath("../HBoxContainer/total_value")
 prize1 = 100
-Coin_label = NodePath("../coin label")
 
 [node name="10 coins" parent="Prize labels" node_paths=PackedStringArray("Coin_label") instance=ExtResource("4_mfh7u")]
 position = Vector2(789, 317)
+script = ExtResource("3_u6ieu")
+Coin_label = NodePath("../HBoxContainer/total_value")
 prize1 = 10
-Coin_label = NodePath("../coin label")
 
 [node name="wheel" parent="." instance=ExtResource("1_s5xcc")]
 position = Vector2(580, 334)
