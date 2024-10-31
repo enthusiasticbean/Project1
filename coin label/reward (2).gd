@@ -29,7 +29,7 @@ func _input(_event):
 func _on_timer_end():
 	if state == GIVING:
 		var current_total = int(Coin_label.text)
-		Coin_label.set_text("%s coins" % [current_total + prize1])
+		Coin_label.set_text("%s" % [current_total + prize1])
 		state = IDLE
 
 
