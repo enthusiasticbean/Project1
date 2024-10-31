@@ -2,7 +2,7 @@ extends Area2D
 
 
 @export var Coin_label: Label
-@export var prize1: int = 0
+@export var prize1: int
 @onready var timer = $Timer
 @onready var label = $Label
 
@@ -28,8 +28,8 @@ func _input(_event):
 
 func _on_timer_end():
 	if state == GIVING:
-		reward += prize1
-		Coin_label.set_text("%s coins" % [reward])
+		var current_total = int(Coin_label.text)
+		Coin_label.set_text("%s coins" % [current_total + prize1])
 		state = IDLE
 
 
