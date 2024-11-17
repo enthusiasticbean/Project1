@@ -1,7 +1,7 @@
 extends Area2D
 
 
-@onready var Coin_label = $"../coin label/total value"
+@export var Coin_label: Label
 @export var prize1: int
 @onready var timer = $Timer
 @onready var label = $Label
